@@ -32,6 +32,15 @@ type PrivateKey struct {
 	D *big.Int
 }
 
+// Create a new PrivateKey based on a random element on the field of a curve.
+func NewKeyFromInt(c *bitelliptic.BitCurve, k *big.Int) *PrivateKey {
+	priv := new(PrivateKey)
+	priv.PublicKey.BitCurve = c
+	priv.D = k
+	priv.PublicKey.X, priv.PublicKey.Y = c.ScalarBaseMult(k.Bytes())
+	return priv
+}
+
 var one = new(big.Int).SetInt64(1)
 
 // randFieldElement returns a random element of the field underlying the given
@@ -56,11 +65,7 @@ func GenerateKey(c *bitelliptic.BitCurve, rand io.Reader) (priv *PrivateKey, err
 	if err != nil {
 		return
 	}
-
-	priv = new(PrivateKey)
-	priv.PublicKey.BitCurve = c
-	priv.D = k
-	priv.PublicKey.X, priv.PublicKey.Y = c.ScalarBaseMult(k.Bytes())
+	priv = NewKeyFromInt(c, k)
 	return
 }
 
@@ -76,7 +81,7 @@ func hashToInt(hash []byte, c *bitelliptic.BitCurve) *big.Int {
 	}
 
 	ret := new(big.Int).SetBytes(hash)
-	excess := orderBytes*8 - orderBits
+	excess := len(hash)*8 - orderBits
 	if excess > 0 {
 		ret.Rsh(ret, uint(excess))
 	}
