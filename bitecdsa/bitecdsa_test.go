@@ -11,7 +11,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/aarbt/bitcoin-crypto/bitelliptic"
+	"github.com/runeaune/bitcoin-crypto/bitelliptic"
 )
 
 func testKeyGeneration(t *testing.T, c *bitelliptic.BitCurve, tag string) {

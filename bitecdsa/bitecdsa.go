@@ -17,7 +17,7 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/aarbt/bitcoin-crypto/bitelliptic"
+	"github.com/runeaune/bitcoin-crypto/bitelliptic"
 )
 
 // PublicKey represents an ECDSA public key.
