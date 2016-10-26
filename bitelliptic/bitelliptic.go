@@ -16,6 +16,7 @@ package bitelliptic
 // reverse the transform than to operate in affine coordinates.
 
 import (
+	"crypto/elliptic"
 	"io"
 	"math/big"
 	"sync"
@@ -24,11 +25,12 @@ import (
 // A BitCurve represents a Koblitz Curve with a=0.
 // See http://www.hyperelliptic.org/EFD/g1p/auto-shortw.html
 type BitCurve struct {
-	P       *big.Int // the order of the underlying field
-	N       *big.Int // the order of the base point
-	B       *big.Int // the constant of the BitCurve equation
-	Gx, Gy  *big.Int // (x,y) of the base point
-	BitSize int      // the size of the underlying field
+	elliptic.CurveParams
+	// P       *big.Int // the order of the underlying field
+	// N       *big.Int // the order of the base point
+	// B       *big.Int // the constant of the BitCurve equation
+	// Gx, Gy  *big.Int // (x,y) of the base point
+	// BitSize int      // the size of the underlying field
 }
 
 // IsOnBitCurve returns true if the given (x,y) lies on the BitCurve.
