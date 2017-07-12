@@ -1,4 +1,4 @@
-	This is a modified ECDSA library for Google Go language.
+This is a modified ECDSA library for Google Go language.
 It is based on original code created by The Go Authors, modified to handle Koblitz curves (such as secp256k1 that is commonly used by Bitcoin applications). The x509 support is currently much more limited.
 
 For more information on Koblitz curves, check out this link:

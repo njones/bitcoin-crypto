@@ -9,11 +9,12 @@ import (
 	"crypto"
 	"encoding/asn1"
 	"errors"
-	"github.com/runeaune/bitcoin-crypto/bitecdsa"
-	"github.com/runeaune/bitcoin-crypto/bitelliptic"
-	"github.com/runeaune/bitcoin-crypto/bitx509/pkix"
 	"math/big"
 	"time"
+
+	"github.com/njones/bitcoin-crypto/bitecdsa"
+	"github.com/njones/bitcoin-crypto/bitelliptic"
+	"github.com/njones/bitcoin-crypto/bitx509/pkix"
 )
 
 // pkixPublicKey reflects a PKIX public key structure. See SubjectPublicKeyInfo

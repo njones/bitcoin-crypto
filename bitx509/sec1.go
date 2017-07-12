@@ -8,9 +8,10 @@ import (
 	"encoding/asn1"
 	"errors"
 	"fmt"
-	"github.com/runeaune/bitcoin-crypto/bitecdsa"
-	"github.com/runeaune/bitcoin-crypto/bitelliptic"
 	"math/big"
+
+	"github.com/njones/bitcoin-crypto/bitecdsa"
+	"github.com/njones/bitcoin-crypto/bitelliptic"
 )
 
 const ecPrivKeyVersion = 1
